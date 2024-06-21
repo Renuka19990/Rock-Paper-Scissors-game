@@ -56,7 +56,7 @@ const Game = ({ opponentId, socket }) => {
         Game
       </Heading>
       {result && (
-        <Text fontSize="lg" color="gray.700" mb={4}>
+        <Text fontSize="lg" color="black" mb={4}>
           {result}
         </Text>
       )}
