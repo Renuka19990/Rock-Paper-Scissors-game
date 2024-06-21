@@ -8,7 +8,7 @@ import Game from './components/Game';
 import Leaderboard from './components/LeaderBoard';
 import WaitingList from './components/WaitingList';
 
-const socket = io('');
+const socket = io('https://rock-paper-scissors-game-amlu.onrender.com');
 
 const App = () => {
   const [username, setUsername] = useState('');
