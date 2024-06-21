@@ -65,7 +65,7 @@ const App = () => {
         <Heading color="teal.600" mb={6}>Rock-Paper-Scissors</Heading>
         {!loggedIn ? (
           <VStack spacing={4}>
-            <Text fontSize="lg" color="gray.600">Login to Game</Text>
+            <Text fontSize="lg" color="black.600">Login to Game</Text>
             <Input
               placeholder="Enter your username"
               value={username}

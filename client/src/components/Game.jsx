@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { Box, Button, Text, VStack, Heading } from '@chakra-ui/react';
 
 const Game = ({ opponentId, socket }) => {
-  // eslint-disable-next-line no-unused-vars
   const [move, setMove] = useState(null);
   const [opponentMove, setOpponentMove] = useState(null);
   const [result, setResult] = useState('');
@@ -43,19 +42,42 @@ const Game = ({ opponentId, socket }) => {
   };
 
   return (
-    <Box mt={4} bg="white" p={6} borderRadius="md" boxShadow="md">
-      <Heading fontSize="2xl">Game</Heading>
-      {result && <Text>{result}</Text>}
+    <Box
+      mt={4}
+      bg="whiteAlpha.900"
+      p={8}
+      borderRadius="lg"
+      boxShadow="lg"
+      w="full"
+      maxW="sm"
+      textAlign="center"
+    >
+      <Heading fontSize="2xl" color="teal.600" mb={4}>
+        Game
+      </Heading>
+      {result && (
+        <Text fontSize="lg" color="gray.700" mb={4}>
+          {result}
+        </Text>
+      )}
       {!gameOver && !result && (
         <VStack spacing={4} mt={4}>
-          <Button onClick={() => handleMove('rock')} colorScheme="blue">Rock</Button>
-          <Button onClick={() => handleMove('paper')} colorScheme="green">Paper</Button>
-          <Button onClick={() => handleMove('scissors')} colorScheme="red">Scissors</Button>
+          <Button onClick={() => handleMove('rock')} colorScheme="blue" size="lg" w="full">
+            Rock
+          </Button>
+          <Button onClick={() => handleMove('paper')} colorScheme="green" size="lg" w="full">
+            Paper
+          </Button>
+          <Button onClick={() => handleMove('scissors')} colorScheme="red" size="lg" w="full">
+            Scissors
+          </Button>
         </VStack>
       )}
       {gameOver && (
         <Box mt={4}>
-          <Button onClick={handlePlayAgain} colorScheme="teal">Play Again</Button>
+          <Button onClick={handlePlayAgain} colorScheme="teal" size="lg" w="full">
+            Play Again
+          </Button>
         </Box>
       )}
     </Box>

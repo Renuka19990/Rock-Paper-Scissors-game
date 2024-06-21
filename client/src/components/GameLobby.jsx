@@ -1,6 +1,6 @@
 // components/GameLobby.js
 /* eslint-disable react/prop-types */
-import { Box, Button, Text, VStack, Heading } from '@chakra-ui/react';
+import { Box, Button, Text, VStack, Heading, HStack, Divider } from '@chakra-ui/react';
 
 const GameLobby = ({ players = [], socket, setWaiting }) => {
   const handleStartGame = (opponentId) => {
@@ -9,17 +9,41 @@ const GameLobby = ({ players = [], socket, setWaiting }) => {
   };
 
   return (
-    <Box bg="white" p={6} borderRadius="md" boxShadow="md">
-      <Heading fontSize="2xl" mb={4}>Game Lobby</Heading>
-      <VStack spacing={4}>
-        {players.map(player => (
-          <Box key={player.id} p={4} bg="gray.50" borderRadius="md" w="100%">
-            <Text>{player.username}</Text>
-            <Button onClick={() => handleStartGame(player.id)} colorScheme="blue" ml={2}>
+    <Box
+      bg="whiteAlpha.900"
+      p={8}
+      borderRadius="lg"
+      boxShadow="lg"
+      w="full"
+      maxW="md"
+      textAlign="center"
+    >
+      <Heading fontSize="2xl" color="teal.600" mb={6}>
+        Game Lobby
+      </Heading>
+      <VStack spacing={6}>
+        {players.map((player) => (
+          <HStack
+            key={player.id}
+            p={4}
+            bg="gray.100"
+            borderRadius="md"
+            w="full"
+            justifyContent="space-between"
+          >
+            <Text fontSize="lg" fontWeight="medium">
+              {player.username}
+            </Text>
+            <Button onClick={() => handleStartGame(player.id)} colorScheme="teal" size="sm">
               Play
             </Button>
-          </Box>
+          </HStack>
         ))}
+        {players.length === 0 && (
+          <Text fontSize="lg" color="gray.500">
+            No players available
+          </Text>
+        )}
       </VStack>
     </Box>
   );

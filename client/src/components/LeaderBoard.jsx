@@ -6,7 +6,7 @@ import { Box, Text, VStack, Heading } from '@chakra-ui/react';
 
 const Leaderboard = ({ players }) => {
   return (
-    <Box mt={4} bg="white" p={6} borderRadius="md" boxShadow="md">
+    <Box mt={4} bg="white" p={6} borderRadius="md" boxShadow="md" color={"black"}>
       <Heading fontSize="2xl">Leaderboard</Heading>
       <VStack spacing={2} mt={4}>
         {players.sort((a, b) => b.score - a.score).map((player, index) => (
